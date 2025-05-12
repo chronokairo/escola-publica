@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Tarefas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        📝 Minhas Tarefas
+    </header>
+
+    <div class="container" id="tarefasContainer">
+        <!-- Tarefas serão inseridas aqui via JavaScript -->
+    </div>
+
+    <script>
+        // Exemplo de tarefas pré-carregadas (simulação offline)
+        const tarefas = [
+            { id: 1, titulo: "Atividade de Português", pergunta: "Escreva um pequeno texto sobre seu animal favorito." },
+            { id: 2, titulo: "Matemática - Problemas", pergunta: "Quanto é 12 x 8? Explique seu raciocínio." }
+        ];
+
+        const respostasSalvas = JSON.parse(localStorage.getItem("respostasTarefas")) || {};
+
+        const container = document.getElementById("tarefasContainer");
+
+        tarefas.forEach(tarefa => {
+            const div = document.createElement("div");
+            div.className = "tarefa";
+
+            const respostaAtual = respostasSalvas[tarefa.id] || "";
+
+            div.innerHTML = `
+      <h3>${tarefa.titulo}</h3>
+      <p>${tarefa.pergunta}</p>
+      <textarea id="resposta-${tarefa.id}">${respostaAtual}</textarea>
+      <br>
+      <button onclick="salvarResposta(${tarefa.id})">Salvar</button>
+    `;
+
+            container.appendChild(div);
+        });
+
+        function salvarResposta(id) {
+            const resposta = document.getElementById(`resposta-${id}`).value;
+            respostasSalvas[id] = resposta;
+            localStorage.setItem("respostasTarefas", JSON.stringify(respostasSalvas));
+            alert("Resposta salva! Será sincronizada quando estiver online.");
+        }
+    </script>
+
+</body>
+
+</html>

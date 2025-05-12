@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz de Português</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="quizp.css">
+</head>
+
+<body>
+
+    <header>📚 Quiz de Português</header>
+
+    <div class="container" id="quiz">
+        <!-- Pergunta e opções vão aqui -->
+    </div>
+
+    <script>
+        const quiz = [
+            {
+                pergunta: "1. Qual a forma correta?",
+                opcoes: ["Enchergar", "Enxergar", "Enxeguar", "Enchergar"],
+                correta: 1
+            },
+            {
+                pergunta: "2. Qual o plural de 'pão'?",
+                opcoes: ["Pãos", "Pães", "Pãeses", "Pãons"],
+                correta: 1
+            },
+            {
+                pergunta: "3. O que é um sinônimo de 'feliz'?",
+                opcoes: ["Triste", "Alegre", "Bravo", "Cansado"],
+                correta: 1
+            },
+            {
+                pergunta: "4. Qual palavra está escrita corretamente?",
+                opcoes: ["Preziza", "Preciza", "Precisa", "Presiza"],
+                correta: 2
+            },
+            {
+                pergunta: "5. Qual dessas frases está correta?",
+                opcoes: ["A gente vamos brincar", "Nós vai no parque", "Eu fomos na escola", "Nós vamos estudar"],
+                correta: 3
+            }
+        ];
+
+        let atual = 0;
+        let pontos = 0;
+
+        function mostrarPergunta() {
+            const q = quiz[atual];
+            let html = `<div class="pergunta"><h3>${q.pergunta}</h3>`;
+            q.opcoes.forEach((opcao, i) => {
+                html += `<div class="opcao" onclick="responder(${i})">${opcao}</div>`;
+            });
+            html += `</div>`;
+            document.getElementById("quiz").innerHTML = html;
+        }
+
+        function responder(resposta) {
+            const correta = quiz[atual].correta;
+            if (resposta === correta) {
+                pontos++;
+            }
+            atual++;
+            if (atual < quiz.length) {
+                mostrarPergunta();
+            } else {
+                document.getElementById("quiz").innerHTML = `
+          <h2>🎉 Fim do Quiz!</h2>
+          <p id="resultado">Você acertou ${pontos} de ${quiz.length} perguntas.</p>
+          <button onclick="reiniciar()">Tentar novamente</button>
+        `;
+            }
+        }
+
+        function reiniciar() {
+            atual = 0;
+            pontos = 0;
+            mostrarPergunta();
+        }
+
+        mostrarPergunta();
+    </script>
+
+</body>
+
+</html>

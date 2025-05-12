@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz de Matemática</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="quizm.css">
+</head>
+
+<body>
+
+    <header>➗ Quiz de Matemática</header>
+
+    <div class="container" id="quiz">
+        <!-- Perguntas serão exibidas aqui -->
+    </div>
+
+    <script>
+        const mat = [
+            {
+                pergunta: "1. Quanto é 7 + 5?",
+                opcoes: ["10", "11", "12", "13"],
+                correta: 2
+            },
+            {
+                pergunta: "2. Quanto é 9 x 3?",
+                opcoes: ["27", "18", "21", "24"],
+                correta: 0
+            },
+            {
+                pergunta: "3. Quanto é 15 - 4?",
+                opcoes: ["10", "11", "9", "12"],
+                correta: 1
+            },
+            {
+                pergunta: "4. Quanto é 20 ÷ 5?",
+                opcoes: ["2", "3", "4", "5"],
+                correta: 3
+            },
+            {
+                pergunta: "5. Quanto é 6 x 6?",
+                opcoes: ["36", "30", "24", "42"],
+                correta: 0
+            }
+        ];
+
+        let atual = 0;
+        let pontos = 0;
+
+        function mostrarPergunta() {
+            const q = mat[atual];
+            let html = `<div class="pergunta"><h3>${q.pergunta}</h3>`;
+            q.opcoes.forEach((opcao, i) => {
+                html += `<div class="opcao" onclick="responder(${i})">${opcao}</div>`;
+            });
+            html += `</div>`;
+            document.getElementById("quiz").innerHTML = html;
+        }
+
+        function responder(resposta) {
+            if (resposta === mat[atual].correta) {
+                pontos++;
+            }
+            atual++;
+            if (atual < mat.length) {
+                mostrarPergunta();
+            } else {
+                document.getElementById("quiz").innerHTML = `
+                <h2>🎉 Fim do Quiz!</h2>
+                <p id="resultado">Você acertou ${pontos} de ${mat.length} perguntas.</p>
+                <button onclick="reiniciar()">Tentar novamente</button>
+            `;
+            }
+        }
+
+        function reiniciar() {
+            atual = 0;
+            pontos = 0;
+            mostrarPergunta();
+        }
+
+        mostrarPergunta();
+    </script>
+
+</body>
+
+</html>

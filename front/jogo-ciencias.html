@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Classificação de Ciências</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="quizc.css">
+</head>
+
+<body>
+
+    <header>🌿 Classifique os Itens</header>
+
+    <div class="container">
+        <p>Arraste cada item para sua categoria correta:</p>
+
+        <div class="itens" id="itens">
+            <div class="item" draggable="true" id="gato" data-categoria="animal">🐱 Gato</div>
+            <div class="item" draggable="true" id="caderno" data-categoria="objeto">📒 Caderno</div>
+            <div class="item" draggable="true" id="rosa" data-categoria="planta">🌹 Rosa</div>
+            <div class="item" draggable="true" id="cachorro" data-categoria="animal">🐶 Cachorro</div>
+            <div class="item" draggable="true" id="lápis" data-categoria="objeto">✏️ Lápis</div>
+            <div class="item" draggable="true" id="árvore" data-categoria="planta">🌳 Árvore</div>
+        </div>
+
+        <div class="categorias">
+            <div class="categoria" data-categoria="animal" ondrop="soltar(event)" ondragover="permitirSoltar(event)">
+                <h3>🐾 Animais</h3>
+            </div>
+            <div class="categoria" data-categoria="planta" ondrop="soltar(event)" ondragover="permitirSoltar(event)">
+                <h3>🌿 Plantas</h3>
+            </div>
+            <div class="categoria" data-categoria="objeto" ondrop="soltar(event)" ondragover="permitirSoltar(event)">
+                <h3>📦 Objetos</h3>
+            </div>
+        </div>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        let acertos = 0;
+
+        const itens = document.querySelectorAll('.item');
+        itens.forEach(item => {
+            item.addEventListener('dragstart', drag);
+        });
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function permitirSoltar(event) {
+            event.preventDefault();
+            event.currentTarget.classList.add('over');
+        }
+
+        function soltar(event) {
+            event.preventDefault();
+            const id = event.dataTransfer.getData("text");
+            const item = document.getElementById(id);
+            const categoriaAlvo = event.currentTarget.getAttribute("data-categoria");
+            const categoriaItem = item.getAttribute("data-categoria");
+
+            if (categoriaAlvo === categoriaItem) {
+                event.currentTarget.appendChild(item);
+                acertos++;
+                item.setAttribute("draggable", false); // evita mover de novo
+            }
+
+            event.currentTarget.classList.remove('over');
+
+            if (acertos === 6) {
+                document.getElementById("resultado").innerText = "✅ Parabéns! Todos os itens foram classificados corretamente!";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

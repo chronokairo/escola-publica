@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App Escolar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        📚 Meu App Escolar
+    </header>
+
+    <div id="offlineAlert" class="offline-alert" style="display: none;">
+        Você está offline! Algumas funções podem estar limitadas.
+    </div>
+
+    <div class="container">
+        <div class="card" onclick="location.href='tarefas.html'">
+            <img src="icons/tarefas.png" alt="Tarefas">
+            <p>Tarefas</p>
+        </div>
+        <div class="card" onclick="location.href='jogos.html'">
+            <img src="icons/jogos.png" alt="Jogos">
+            <p>Jogos</p>
+        </div>
+        <div class="card" onclick="location.href='progresso.html'">
+            <img src="icons/progresso.png" alt="Progresso">
+            <p>Meu Progresso</p>
+        </div>
+        <div class="card" onclick="location.href='ajuda.html'">
+            <img src="icons/ajuda.png" alt="Ajuda">
+            <p>Ajuda</p>
+        </div>
+        <div class="card" onclick="location.href='login.html'">
+            <img src="icons/login.png" alt="Login">
+            <p>Entrar</p>
+        </div>
+    </div>
+
+    <script>
+        // Verifica se o usuário está offline
+        if (!navigator.onLine) {
+            document.getElementById('offlineAlert').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
