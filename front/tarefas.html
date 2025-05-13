@@ -1,56 +1,96 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <title>Minhas Tarefas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <title>Tarefas | App Escolar</title>
+    <link rel="stylesheet" href="tarefas.css">
 </head>
 
 <body>
+    <h1>📘 Minhas Tarefas</h1>
+    <div id="listaTarefas"></div>
 
-    <header>
-        📝 Minhas Tarefas
-    </header>
+    <script>
+        const tarefas = [
+            { id: 1, titulo: "Matemática: Multiplicação", descricao: "Resolva as questões da página 23.", concluida: false },
+            { id: 2, titulo: "Ciências: Sistema Solar", descricao: "Leia e responda as perguntas da página 45.", concluida: false },
+            { id: 3, titulo: "Português: Interpretação", descricao: "Leia o texto da página 12 e responda.", concluida: false }
+        ];
 
-    <div class="container" id="tarefasContainer">
-        <!-- Tarefas serão inseridas aqui via JavaScript -->
+        const salvas = JSON.parse(localStorage.getItem("tarefasConcluidas")) || [];
+
+        tarefas.forEach(tarefa => {
+            if (salvas.includes(tarefa.id)) tarefa.concluida = true;
+        });
+
+        const lista = document.getElementById("listaTarefas");
+        tarefas.forEach(tarefa => {
+            const div = document.createElement("div");
+            div.className = "tarefa" + (tarefa.concluida ? " concluida" : "");
+            div.innerHTML = `<h3>${tarefa.titulo}</h3><p>${tarefa.descricao}</p>`;
+
+            if (!tarefa.concluida) {
+                const btn = document.createElement("button");
+                btn.innerText = "Marcar como feita";
+                btn.onclick = () => {
+                    tarefa.concluida = true;
+                    salvas.push(tarefa.id);
+                    localStorage.setItem("tarefasConcluidas", JSON.stringify(salvas));
+                    location.reload();
+                };
+                div.appendChild(btn);
+            } else {
+                div.innerHTML += "<p><strong>✅ Concluída</strong></p>";
+            }
+
+            lista.appendChild(div);
+        });
+    </script>
+    oter
+    style="position:fixed; bottom:0; left:0; width:100%; background:#2e7d32; color:white; text-align:center;
+    padding:10px;">
+    <a href="index.html" style="margin: 0 10px; color:white; text-decoration:none;">🏠 Início</a>
+    <a href="tarefas.html" style="margin: 0 10px; color:white; text-decoration:none;">📝 Tarefas</a>
+    <a href="jogos.html" style="margin: 0 10px; color:white; text-decoration:none;">🎮 Jogos</a>
+    <a href="painel-professor.html" style="margin: 0 10px; color:white; text-decoration:none;">👨‍🏫 Painel</a>
+    <a href="configuracoes.html" style="margin: 0 10px; color:white; text-decoration:none;">⚙️ Configurações</a>
+    <a href="#" onclick="mostrarSobre()" style="margin: 0 10px; color:white; text-decoration:none;">📘 Sobre</a>
+
+    </footer>
+    <!-- Modal Sobre -->
+    <div id="modalSobre"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:2000;"
+        aria-hidden="true" role="dialog">
+        <div
+            style="background:#fff; padding:20px; border-radius:10px; max-width:500px; margin:10% auto; text-align:center; position:relative; box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+            <!-- Botão de fechar no canto superior direito -->
+            <button onclick="fecharSobre()"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+            <h2>📘 Sobre o Aplicativo</h2>
+            <p style="font-size:16px; color:#333; line-height:1.5;">
+                Este aplicativo foi desenvolvido para facilitar a educação em escolas públicas, oferecendo acesso
+                offline a
+                tarefas, jogos educativos e ferramentas para professores e alunos.
+                Ele visa promover o aprendizado de forma acessível, interativa e intuitiva, mesmo em locais com pouca
+                conexão à internet.
+            </p>
+            <button onclick="fecharSobre()"
+                style="margin-top:15px; background:#2e7d32; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer;">Fechar</button>
+        </div>
     </div>
 
     <script>
-        // Exemplo de tarefas pré-carregadas (simulação offline)
-        const tarefas = [
-            { id: 1, titulo: "Atividade de Português", pergunta: "Escreva um pequeno texto sobre seu animal favorito." },
-            { id: 2, titulo: "Matemática - Problemas", pergunta: "Quanto é 12 x 8? Explique seu raciocínio." }
-        ];
+        function mostrarSobre() {
+            const modal = document.getElementById("modalSobre");
+            modal.style.display = "block";
+            modal.setAttribute("aria-hidden", "false");
+        }
 
-        const respostasSalvas = JSON.parse(localStorage.getItem("respostasTarefas")) || {};
-
-        const container = document.getElementById("tarefasContainer");
-
-        tarefas.forEach(tarefa => {
-            const div = document.createElement("div");
-            div.className = "tarefa";
-
-            const respostaAtual = respostasSalvas[tarefa.id] || "";
-
-            div.innerHTML = `
-      <h3>${tarefa.titulo}</h3>
-      <p>${tarefa.pergunta}</p>
-      <textarea id="resposta-${tarefa.id}">${respostaAtual}</textarea>
-      <br>
-      <button onclick="salvarResposta(${tarefa.id})">Salvar</button>
-    `;
-
-            container.appendChild(div);
-        });
-
-        function salvarResposta(id) {
-            const resposta = document.getElementById(`resposta-${id}`).value;
-            respostasSalvas[id] = resposta;
-            localStorage.setItem("respostasTarefas", JSON.stringify(respostasSalvas));
-            alert("Resposta salva! Será sincronizada quando estiver online.");
+        function fecharSobre() {
+            const modal = document.getElementById("modalSobre");
+            modal.style.display = "none";
+            modal.setAttribute("aria-hidden", "true");
         }
     </script>
 

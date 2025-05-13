@@ -1,54 +1,107 @@
+<!-- painel-professor.html -->
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>App Escolar</title>
+    <title>Painel do Professor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #f0f4c3, #e3f2fd);
+            margin: 0;
+            padding: 20px;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+            margin-bottom: 30px;
+        }
+
+        .aluno {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .progresso {
+            height: 20px;
+            background: #c8e6c9;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .barra {
+            height: 100%;
+            background: #4caf50;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .voltar {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #1b5e20;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>📊 Painel do Professor</h1>
 
-    <header>
-        📚 Meu App Escolar
-    </header>
+    <div id="alunosContainer"></div>
 
-    <div id="offlineAlert" class="offline-alert" style="display: none;">
-        Você está offline! Algumas funções podem estar limitadas.
-    </div>
-
-    <div class="container">
-        <div class="card" onclick="location.href='tarefas.html'">
-            <img src="icons/tarefas.png" alt="Tarefas">
-            <p>Tarefas</p>
-        </div>
-        <div class="card" onclick="location.href='jogos.html'">
-            <img src="icons/jogos.png" alt="Jogos">
-            <p>Jogos</p>
-        </div>
-        <div class="card" onclick="location.href='progresso.html'">
-            <img src="icons/progresso.png" alt="Progresso">
-            <p>Meu Progresso</p>
-        </div>
-        <div class="card" onclick="location.href='ajuda.html'">
-            <img src="icons/ajuda.png" alt="Ajuda">
-            <p>Ajuda</p>
-        </div>
-        <div class="card" onclick="location.href='login.html'">
-            <img src="icons/login.png" alt="Login">
-            <p>Entrar</p>
-        </div>
+    <div class="voltar">
+        <a href="index.html" class="btn">🔙 Voltar para o Início</a>
     </div>
 
     <script>
-        // Verifica se o usuário está offline
-        if (!navigator.onLine) {
-            document.getElementById('offlineAlert').style.display = 'block';
-        }
-    </script>
+        const tarefasTotais = 3; // total de tarefas cadastradas
+        const alunos = [
+            { nome: "João Silva", id: "aluno1" },
+            { nome: "Maria Souza", id: "aluno2" },
+            { nome: "Lucas Oliveira", id: "aluno3" }
+        ];
 
+        const container = document.getElementById("alunosContainer");
+
+        alunos.forEach(aluno => {
+            // Simula progresso aleatório
+            const feitas = Math.floor(Math.random() * (tarefasTotais + 1));
+            const perc = Math.floor((feitas / tarefasTotais) * 100);
+
+            const div = document.createElement("div");
+            div.className = "aluno";
+            div.innerHTML = `
+        <h3>${aluno.nome}</h3>
+        <div class="progresso">
+          <div class="barra" style="width:${perc}%">${perc}%</div>
+        </div>
+        <p>${feitas} de ${tarefasTotais} tarefas concluídas</p>
+      `;
+
+            container.appendChild(div);
+        });
+    </script>
     <footer
         style="position:fixed; bottom:0; left:0; width:100%; background:#2e7d32; color:white; text-align:center; padding:10px;">
         <a href="index.html" style="margin: 0 10px; color:white; text-decoration:none;">🏠 Início</a>
@@ -94,7 +147,6 @@
             modal.setAttribute("aria-hidden", "true");
         }
     </script>
-
 
 </body>
 

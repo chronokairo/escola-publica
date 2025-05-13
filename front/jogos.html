@@ -35,6 +35,52 @@
             <p>Jogo da Memória</p>
         </div>
     </div>
+    <footer
+        style="position:fixed; bottom:0; left:0; width:100%; background:#2e7d32; color:white; text-align:center; padding:10px;">
+        <a href="index.html" style="margin: 0 10px; color:white; text-decoration:none;">🏠 Início</a>
+        <a href="tarefas.html" style="margin: 0 10px; color:white; text-decoration:none;">📝 Tarefas</a>
+        <a href="jogos.html" style="margin: 0 10px; color:white; text-decoration:none;">🎮 Jogos</a>
+        <a href="painel-professor.html" style="margin: 0 10px; color:white; text-decoration:none;">👨‍🏫 Painel</a>
+        <a href="configuracoes.html" style="margin: 0 10px; color:white; text-decoration:none;">⚙️ Configurações</a>
+        <a href="#" onclick="mostrarSobre()" style="margin: 0 10px; color:white; text-decoration:none;">📘 Sobre</a>
+
+    </footer>
+    <!-- Modal Sobre -->
+    <div id="modalSobre"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:2000;"
+        aria-hidden="true" role="dialog">
+        <div
+            style="background:#fff; padding:20px; border-radius:10px; max-width:500px; margin:10% auto; text-align:center; position:relative; box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+            <!-- Botão de fechar no canto superior direito -->
+            <button onclick="fecharSobre()"
+                style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:20px; cursor:pointer;">&times;</button>
+            <h2>📘 Sobre o Aplicativo</h2>
+            <p style="font-size:16px; color:#333; line-height:1.5;">
+                Este aplicativo foi desenvolvido para facilitar a educação em escolas públicas, oferecendo acesso
+                offline a
+                tarefas, jogos educativos e ferramentas para professores e alunos.
+                Ele visa promover o aprendizado de forma acessível, interativa e intuitiva, mesmo em locais com pouca
+                conexão à internet.
+            </p>
+            <button onclick="fecharSobre()"
+                style="margin-top:15px; background:#2e7d32; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer;">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSobre() {
+            const modal = document.getElementById("modalSobre");
+            modal.style.display = "block";
+            modal.setAttribute("aria-hidden", "false");
+        }
+
+        function fecharSobre() {
+            const modal = document.getElementById("modalSobre");
+            modal.style.display = "none";
+            modal.setAttribute("aria-hidden", "true");
+        }
+    </script>
+
 
 </body>
 
