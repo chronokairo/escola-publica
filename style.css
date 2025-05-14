@@ -139,3 +139,274 @@ header {
     margin-top: 10px;
     font-weight: bold;
 }
+
+.motivacional {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.motivacional img {
+    width: 80px;
+    height: 80px;
+}
+
+.motivacional h2 {
+    margin: 0;
+    color: #2e7d32;
+}
+
+.dicas {
+    background: #fffde7;
+    margin: 20px;
+    padding: 15px;
+    border-left: 5px solid #fdd835;
+    border-radius: 10px;
+}
+
+.dicas ul {
+    padding-left: 20px;
+}
+
+.dicas li {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.noticias-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.noticias-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.noticia-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+}
+
+.noticia-card img {
+    width: 50px;
+    height: 50px;
+}
+
+.noticia-card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #2e7d32;
+}
+
+.noticia-card .data {
+    font-size: 12px;
+    color: #888;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #eeeeee;
+    font-size: 12px;
+    color: #555;
+    margin-top: 30px;
+}
+
+.noticias-section {
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    border-top: 1px solid #ccc;
+}
+
+.noticias-section h2 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.noticia-card {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.noticia-card:hover {
+    transform: translateY(-3px);
+}
+
+.noticia-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.noticia-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.noticia-texto h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #2e7d32;
+}
+
+.noticia-texto .data {
+    font-size: 12px;
+    color: #999;
+    margin: 5px 0;
+}
+
+.noticia-texto p {
+    margin: 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.intro-jogos {
+    text-align: center;
+    background-color: #f1f8e9;
+    padding: 20px;
+    font-size: 16px;
+    color: #2e7d32;
+}
+
+.jogos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.jogo-card {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    align-items: center;
+    gap: 15px;
+}
+
+.jogo-card:hover {
+    transform: translateY(-3px);
+}
+
+.jogo-card.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.jogo-card img {
+    width: 60px;
+    height: 60px;
+}
+
+.jogo-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #2e7d32;
+}
+
+.jogo-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.tag-novo,
+.tag-em-breve {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    color: white;
+}
+
+.tag-novo {
+    background-color: #43a047;
+}
+
+.tag-em-breve {
+    background-color: #f57c00;
+}
+
+.dicas-estudo,
+.sugestao-jogo {
+    background-color: #f9fbe7;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dicas-estudo h2,
+.sugestao-jogo h2 {
+    color: #33691e;
+    margin-bottom: 15px;
+}
+
+.dicas-estudo ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.dicas-estudo li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #444;
+}
+
+.sugestao-jogo p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.sugestao-jogo button {
+    padding: 10px 20px;
+    background-color: #8bc34a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.sugestao-jogo button:hover {
+    background-color: #689f38;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #777;
+    margin-top: 30px;
+    background-color: #f1f8e9;
+}

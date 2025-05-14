@@ -14,27 +14,68 @@
         🎮 Jogos Educativos
     </header>
 
-    <div class="container">
-        <div class="card" onclick="location.href='quiz-portugues.html'">
-            <img src="icons/portugues.png" alt="Quiz Português">
-            <p>Quiz de Português</p>
+    <section class="intro-jogos">
+        <p>Explore diferentes jogos educativos que ajudam você a aprender brincando!</p>
+    </section>
+
+    <div class="jogos-grid">
+        <div class="jogo-card" onclick="location.href='quiz-portugues.html'">
+            <img src="imagem/portugues.jpg" alt="Quiz Português">
+            <div class="jogo-info">
+                <h3>Quiz de Português</h3>
+                <p>Desafie seus conhecimentos em ortografia e gramática.</p>
+                <span class="tag-novo">Novo!</span>
+            </div>
         </div>
 
-        <div class="card" onclick="location.href='quiz-matematica.html'">
-            <img src="icons/matematica.png" alt="Quiz Matemática">
-            <p>Desafios de Matemática</p>
+        <div class="jogo-card" onclick="location.href='quiz-matematica.html'">
+            <img src="imagem/matemática.jpg" alt="Quiz Matemática">
+            <div class="jogo-info">
+                <h3>Desafios de Matemática</h3>
+                <p>Teste seu raciocínio com contas e desafios numéricos.</p>
+            </div>
         </div>
 
-        <div class="card" onclick="location.href='jogo-ciencias.html'">
-            <img src="icons/ciencias.png" alt="Ciências">
-            <p>Ciências - Arraste e Solte</p>
+        <div class="jogo-card" onclick="location.href='jogo-ciencias.html'">
+            <img src="imagem/ciencia.jpg" alt="Ciências">
+            <div class="jogo-info">
+                <h3>Ciências - Arraste e Solte</h3>
+                <p>Classifique elementos e aprenda sobre o corpo humano.</p>
+            </div>
         </div>
 
-        <div class="card" onclick="alert('Jogo em construção!')">
-            <img src="icons/memoria.png" alt="Memória">
-            <p>Jogo da Memória</p>
+        <div class="jogo-card disabled">
+            <img src="imagem/memoria.jpg" alt="Memória">
+            <div class="jogo-info">
+                <h3>Jogo da Memória</h3>
+                <p>Em breve: treine sua memória com figuras educativas!</p>
+                <span class="tag-em-breve">🚧 Em construção</span>
+            </div>
         </div>
     </div>
+    <!-- Seção de Dicas de Estudo -->
+    <section class="dicas-estudo">
+        <h2>💡 Dicas para Aprender Brincando</h2>
+        <ul>
+            <li>🕒 Estude um pouco por dia e depois jogue para fixar o conteúdo.</li>
+            <li>👨‍👩‍👧 Jogue com amigos ou familiares e compartilhe o que aprendeu!</li>
+            <li>🔁 Repita os jogos mais de uma vez para melhorar sua pontuação.</li>
+            <li>📚 Use os jogos como revisão antes das provas.</li>
+        </ul>
+    </section>
+
+    <!-- Seção de Sugestões de Jogos -->
+    <section class="sugestao-jogo">
+        <h2>🎨 Tem uma ideia de jogo novo?</h2>
+        <p>Envie sua sugestão para a equipe do aplicativo e ajude a construir novos desafios!</p>
+        <button onclick="alert('Funcionalidade em breve disponível!')">📩 Enviar sugestão</button>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2025 Aprender Brincando. Desenvolvido com ❤️ para alunos e professores.</p>
+    </footer>
+
 
 </body>
 

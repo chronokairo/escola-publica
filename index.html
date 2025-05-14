@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>App Escolar</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,21 +18,30 @@
         Você está offline! Algumas funções podem estar limitadas.
     </div>
 
+    <!-- Frase motivacional e imagem -->
+    <section class="motivacional">
+        <img src="icons/estudo.png" alt="Estudar" />
+        <div>
+            <h2>🌟 Aprender é o caminho para transformar o mundo!</h2>
+            <p>Comece hoje com foco, diversão e curiosidade.</p>
+        </div>
+    </section>
+
     <div class="container">
         <div class="card" onclick="location.href='tarefas.html'">
-            <img src="icons/tarefas.png" alt="Tarefas">
+            <img src="imagem/tarefa.png" alt="Tarefas">
             <p>Tarefas</p>
         </div>
         <div class="card" onclick="location.href='jogos.html'">
-            <img src="icons/jogos.png" alt="Jogos">
+            <img src="imagem/jogo.png" alt="Jogos">
             <p>Jogos</p>
         </div>
         <div class="card" onclick="location.href='progresso.html'">
-            <img src="icons/progresso.png" alt="Progresso">
+            <img src="imagem/progresso.png" alt="Progresso">
             <p>Meu Progresso</p>
         </div>
         <div class="card" onclick="location.href='ajuda.html'">
-            <img src="icons/ajuda.png" alt="Ajuda">
+            <img src="imagem/ajuda.jpg" alt="Ajuda">
             <p>Ajuda</p>
         </div>
         <div class="card" onclick="location.href='login.html'">
@@ -42,12 +50,64 @@
         </div>
     </div>
 
-    <script>
-        // Verifica se o usuário está offline
-        if (!navigator.onLine) {
-            document.getElementById('offlineAlert').style.display = 'block';
-        }
-    </script>
+    <!-- Dicas rápidas -->
+    <section class="dicas">
+        <h2>💡 Dicas Rápidas</h2>
+        <ul>
+            <li>✅ Estude 30 minutos por dia para melhorar sua memória!</li>
+            <li>🎯 Use os jogos para revisar conteúdos de forma divertida.</li>
+            <li>📅 Marque metas semanais no seu progresso!</li>
+        </ul>
+    </section>
+
+    <!-- Notícias com imagens -->
+    <section class="noticias-section">
+        <h2>📰 Novidades na Educação</h2>
+        <div class="noticias-grid">
+            <div class="noticia-card">
+                <img src="imagem/860794calendario.png" alt="Calendário">
+                <div class="noticia-texto">
+                    <h3>Volta às aulas com novo calendário</h3>
+                    <p class="data">10/05/2025</p>
+                    <p>A Secretaria de Educação lançou um cronograma adaptado às necessidades locais.</p>
+                </div>
+            </div>
+
+            <div class="noticia-card">
+                <img src="imagem/baixados.png" alt="Offline">
+                <div class="noticia-texto">
+                    <h3>Acesso offline agora disponível</h3>
+                    <p class="data">07/05/2025</p>
+                    <p>Agora os alunos podem estudar sem precisar de conexão com a internet.</p>
+                </div>
+            </div>
+
+            <div class="noticia-card">
+                <img src="imagem/prof.png" alt="Professor">
+                <div class="noticia-texto">
+                    <h3>Formação digital gratuita para professores</h3>
+                    <p class="data">01/05/2025</p>
+                    <p>Capacitação online será oferecida com certificado e apoio de universidades públicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Rodapé com informações de contato -->
+    <section class="contato">
+        <h2>📞 Fale Conosco</h2>
+        <p>📧 Email:
+
+            <!-- Rodapé -->
+        <footer>
+            <p>Versão 1.0.0 | Desenvolvido com ❤️ para escolas públicas</p>
+        </footer>
+
+        <script>
+            // Verifica se o usuário está offline
+            if (!navigator.onLine) {
+                document.getElementById('offlineAlert').style.display = 'block';
+            }
+        </script>
 
 </body>
 
