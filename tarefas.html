@@ -3,56 +3,70 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Minhas Tarefas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <title>Minhas Atividades</title>
+    <link rel="stylesheet" href="stylet.css">
 </head>
 
 <body>
 
+    <!-- Cabeçalho -->
     <header>
-        📝 Minhas Tarefas
+        📚 Minhas Atividades
     </header>
 
-    <div class="container" id="tarefasContainer">
-        <!-- Tarefas serão inseridas aqui via JavaScript -->
+    <!-- Introdução -->
+    <section class="intro-atividades">
+        <p>Veja as atividades que você tem para realizar. Complete-as para acompanhar seu progresso!</p>
+    </section>
+
+    <!-- Grid de Atividades -->
+    <div class="atividades-grid">
+        <!-- Atividade de Português -->
+        <div class="atividade-card">
+            <img src="imagem/portuguees.png" alt="Atividade Português">
+            <div class="atividade-info">
+                <h3>Atividade de Português</h3>
+                <p>Revise os temas gramaticais e complete as questões propostas.</p>
+                <button onclick="location.href='atividade-portugues.html'">Começar</button>
+            </div>
+        </div>
+
+        <!-- Atividade de Matemática -->
+        <div class="atividade-card">
+            <img src="imagem/matematicaa.png" alt="Atividade Matemática">
+            <div class="atividade-info">
+                <h3>Atividade de Matemática</h3>
+                <p>Resolva problemas e questões de operações matemáticas.</p>
+                <button onclick="location.href='atividade-matematica.html'">Começar</button>
+            </div>
+        </div>
+
+        <!-- Atividade de Ciências -->
+        <div class="atividade-card">
+            <img src="imagem/cienciasa.png" alt="Atividade Ciências">
+            <div class="atividade-info">
+                <h3>Atividade de Ciências</h3>
+                <p>Estude e complete as questões sobre biologia e química.</p>
+                <button onclick="location.href='atividade-ciencias.html'">Começar</button>
+            </div>
+        </div>
+
+        <!-- Atividade de História - Desabilitada -->
+        <div class="atividade-card disabled">
+            <img src="imagem/historia.png" alt="Atividade História">
+            <div class="atividade-info">
+                <h3>Atividade de História</h3>
+                <p>Em breve: explore os eventos históricos e suas implicações.</p>
+                <button disabled>Em breve</button>
+            </div>
+        </div>
     </div>
 
-    <script>
-        // Exemplo de tarefas pré-carregadas (simulação offline)
-        const tarefas = [
-            { id: 1, titulo: "Atividade de Português", pergunta: "Escreva um pequeno texto sobre seu animal favorito." },
-            { id: 2, titulo: "Matemática - Problemas", pergunta: "Quanto é 12 x 8? Explique seu raciocínio." }
-        ];
-
-        const respostasSalvas = JSON.parse(localStorage.getItem("respostasTarefas")) || {};
-
-        const container = document.getElementById("tarefasContainer");
-
-        tarefas.forEach(tarefa => {
-            const div = document.createElement("div");
-            div.className = "tarefa";
-
-            const respostaAtual = respostasSalvas[tarefa.id] || "";
-
-            div.innerHTML = `
-      <h3>${tarefa.titulo}</h3>
-      <p>${tarefa.pergunta}</p>
-      <textarea id="resposta-${tarefa.id}">${respostaAtual}</textarea>
-      <br>
-      <button onclick="salvarResposta(${tarefa.id})">Salvar</button>
-    `;
-
-            container.appendChild(div);
-        });
-
-        function salvarResposta(id) {
-            const resposta = document.getElementById(`resposta-${id}`).value;
-            respostasSalvas[id] = resposta;
-            localStorage.setItem("respostasTarefas", JSON.stringify(respostasSalvas));
-            alert("Resposta salva! Será sincronizada quando estiver online.");
-        }
-    </script>
+    <!-- Rodapé com botão de voltar -->
+    <footer>
+        <a href="index.html" class="voltar-topo">⬅ Voltar</a>
+    </footer>
 
 </body>
 

@@ -1,0 +1,114 @@
+/* Estilos Globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Introdução */
+.intro-atividades {
+    text-align: center;
+    margin: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Grid de Atividades */
+.atividades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    /* Limita a largura máxima da grid */
+    margin: 0 auto;
+    /* Centraliza a grid horizontalmente */
+}
+
+/* Cartões de Atividades */
+.atividade-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.atividade-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.atividade-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.atividade-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.atividade-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.atividade-info p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.atividade-info button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.atividade-info button:hover {
+    background-color: #1b5e20;
+}
+
+.atividade-card.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.atividade-card.disabled button {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.voltar-topo {
+    font-size: 18px;
+    color: #2e7d32;
+    text-decoration: none;
+}
+
+.voltar-topo:hover {
+    text-decoration: underline;
+}

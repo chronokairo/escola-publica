@@ -20,7 +20,7 @@
 
     <!-- Frase motivacional e imagem -->
     <section class="motivacional">
-        <img src="icons/estudo.png" alt="Estudar" />
+        <img src="imagem/eeestudo.png" alt="Estudar" />
         <div>
             <h2>🌟 Aprender é o caminho para transformar o mundo!</h2>
             <p>Comece hoje com foco, diversão e curiosidade.</p>
@@ -45,9 +45,10 @@
             <p>Ajuda</p>
         </div>
         <div class="card" onclick="location.href='login.html'">
-            <img src="icons/login.png" alt="Login">
+            <img src="imagem/icone.jpg" alt="Login">
             <p>Entrar</p>
         </div>
+
     </div>
 
     <!-- Dicas rápidas -->
@@ -100,6 +101,47 @@
             <!-- Rodapé -->
         <footer>
             <p>Versão 1.0.0 | Desenvolvido com ❤️ para escolas públicas</p>
+            <!-- Botão para abrir o modal -->
+            <button onclick="abrirModal()" class="botao-sobre">ℹ️ Sobre</button>
+
+            <!-- Modal escondido inicialmente -->
+            <div id="modalSobre" class="modal">
+                <div class="modal-conteudo">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <h2>Sobre o App</h2>
+                    <p>📘 Sobre o Aplicativo<br>
+                        Este aplicativo foi criado para facilitar o aprendizado de alunos e o trabalho de professores em
+                        escolas públicas,
+                        oferecendo uma alternativa simples e acessível ao app escolar tradicional.<br>
+
+                        Funciona offline, tem tarefas pré-instaladas, jogos educativos, painel do professor e uma
+                        interface fácil de usar,
+                        tornando o ensino mais dinâmico, divertido e eficiente.<br>
+
+                        Nosso objetivo é levar tecnologia e educação de qualidade para todos, em qualquer lugar.
+                    </p>
+                </div>
+            </div>
+            <script>
+                function abrirModal() {
+                    document.getElementById("modalSobre").style.display = "block";
+                }
+
+                function fecharModal() {
+                    document.getElementById("modalSobre").style.display = "none";
+                }
+
+                // Fecha o modal ao clicar fora dele
+                window.onclick = function (event) {
+                    const modal = document.getElementById("modalSobre");
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+
+
         </footer>
 
         <script>
